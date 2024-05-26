@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../router/router.dart';
+import '../app_bar/custom_app_bar.dart';
 
-class AboutMeScreen extends StatelessWidget {
+class AboutMeScreen extends StatefulWidget {
   const AboutMeScreen({super.key});
 
   @override
+  State<AboutMeScreen> createState() => _AboutMeScreenState();
+}
+
+class _AboutMeScreenState extends State<AboutMeScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('About Me')),
-      body: SingleChildScrollView(child: Column(
-        children: [
-          ElevatedButton(onPressed: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => AboutMeScreen(),
-            //   ),
-            // );
-            context.go(CustomRouter.academics.path);
-            // goRouter.pushNamed(CustomRouter.aboutMe.name);
-          }, child: Text("About Me")),
-          Text('About Me Screen'),
-        ],
-      )),
+      appBar: const CustomAppbar(
+        selectedRouter: CustomRouter.aboutMe,
+      ),
+      body: SingleChildScrollView(
+          child: Column(
+            children: [
+            ],
+          )),
     );
   }
 }
